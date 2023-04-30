@@ -8,6 +8,10 @@ namespace BlazorAppWithSignalR.Hubs
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
+        public async Task IncrementCountMessage(string message)
+        {
+            await Clients.All.SendAsync("IncrementCountMessage", message);
+        }
 
     }
 }

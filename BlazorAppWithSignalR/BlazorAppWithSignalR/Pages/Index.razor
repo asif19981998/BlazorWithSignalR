@@ -24,7 +24,11 @@
     </label>
 </div>
 <button @onclick="Send" disabled="@(!IsConnected)">Send</button>
-
+<button @onclick="IncrementCount">Increment</button>
+<button @onclick="DecrementCount">Decrement</button>
+<p>
+    @count
+</p>
 <hr>
 
 <ul id="messagesList">
@@ -39,8 +43,9 @@
     private List<string> messages = new List<string>();
     private string? userInput;
     private string? messageInput;
-     private string NotificationTitle { get; set; }
+    private string NotificationTitle { get; set; }
     private string NotificationMessage { get; set; }
+    int count = 0;
     protected override async Task OnInitializedAsync()
     {
         hubConnection = new HubConnectionBuilder()
@@ -54,29 +59,45 @@
             messages.Add(encodedMsg);
             StateHasChanged();
         });
-
-         hubConnection.On<string, string>("ReceiveMessage",async (user, message) =>
+        hubConnection.On<string>("IncrementCountMessage", (message) =>
         {
-            // Display the notification to the user
-            // await _jsRuntime.InvokeVoidAsync("showNotification", "New Notification", message);
 
-             NotificationTitle = "New Notification";
-            NotificationMessage = message;
-
-            // Call StateHasChanged to update the UI
-            await InvokeAsync(() => StateHasChanged());
+            var encodedMsg = $"{message}";
+            messages.Add(encodedMsg);
+            StateHasChanged();
         });
-        
-           
-        
+
+        hubConnection.On<string>("IncrementCountMessage",async (message) =>
+       {
+       // Display the notification to the user
+       // await _jsRuntime.InvokeVoidAsync("showNotification", "New Notification", message);
+
+           NotificationTitle = "New Notification";
+           NotificationMessage = message;
+
+       // Call StateHasChanged to update the UI
+           await InvokeAsync(() => StateHasChanged());
+       });
+
+        // hubConnection.On<string, string>("ReceiveMessage",async (user, message) =>
+        //{
+        //// Display the notification to the user
+        //// await _jsRuntime.InvokeVoidAsync("showNotification", "New Notification", message);
+
+        //    NotificationTitle = "New Notification";
+        //    NotificationMessage = message;
+
+        //// Call StateHasChanged to update the UI
+        //    await InvokeAsync(() => StateHasChanged());
+        //});
     }
 
     private async Task Send()
     {
         if (hubConnection is not null)
-            {
-                await hubConnection.SendAsync("SendMessage", userInput, messageInput);
-            }
+        {
+            await hubConnection.SendAsync("SendMessage", userInput, messageInput);
+        }
     }
 
     public bool IsConnected =>
@@ -87,6 +108,31 @@
         if (hubConnection is not null)
         {
             await hubConnection.DisposeAsync();
+        }
+    }
+
+    public async Task IncrementCount()
+    {
+        await Task.Yield();
+        count++;
+        if (count>10)
+        {
+            if (hubConnection is not null)
+            {
+                await hubConnection.SendAsync("IncrementCountMessage", $"Count is over:{count}");
+            }
+        }
+        StateHasChanged();
+
+    }
+
+    public async Task DecrementCount()
+    {
+        await Task.Yield();
+        count--;
+        if (count<10)
+        {
+            NotificationMessage = null; 
         }
     }
 }
