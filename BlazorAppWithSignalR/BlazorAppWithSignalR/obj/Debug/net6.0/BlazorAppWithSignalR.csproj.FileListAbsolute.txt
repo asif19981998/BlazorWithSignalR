@@ -37,3 +37,10 @@ E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWi
 E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\obj\Debug\net6.0\BlazorAppWithSignalR.pdb
 E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\obj\Debug\net6.0\BlazorAppWithSignalR.genruntimeconfig.cache
 E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\obj\Debug\net6.0\ref\BlazorAppWithSignalR.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Blazored.Toast.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+E:\New Work Folder 28_03_2023\BlazorWithSignalR\BlazorAppWithSignalR\BlazorAppWithSignalR\bin\Debug\net6.0\Microsoft.JSInterop.dll

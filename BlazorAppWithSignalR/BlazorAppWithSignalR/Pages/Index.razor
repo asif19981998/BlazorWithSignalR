@@ -1,15 +1,23 @@
 ﻿@page "/"
+
+
+
+
+
 @using Microsoft.AspNetCore.SignalR.Client
+
 @inject NavigationManager Navigation
 @implements IAsyncDisposable
 @inject IJSRuntime _jsRuntime
+@inject IToastService _toastService
 <PageTitle>Index</PageTitle>
 @if (!string.IsNullOrEmpty(NotificationMessage))
 {
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    @*<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>@NotificationTitle</strong> @NotificationMessage
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    </div>*@
+  
 }
 <div class="form-group">
     <label>
@@ -59,21 +67,27 @@
             messages.Add(encodedMsg);
             StateHasChanged();
         });
-        hubConnection.On<string>("IncrementCountMessage", (message) =>
-        {
+        //hubConnection.On<string>("IncrementCountMessage", (message) =>
+        //{
 
-            var encodedMsg = $"{message}";
-            messages.Add(encodedMsg);
-            StateHasChanged();
-        });
+        //    var encodedMsg = $"{message}";
+        //    messages.Add(encodedMsg);
+        //    StateHasChanged();
+        //});
 
         hubConnection.On<string>("IncrementCountMessage",async (message) =>
        {
        // Display the notification to the user
        // await _jsRuntime.InvokeVoidAsync("showNotification", "New Notification", message);
+       //    var options = new ToastSettings
+       //     {
+       //         Position = ToastPosition.BottomRight
+       //     };
 
-           NotificationTitle = "New Notification";
-           NotificationMessage = message;
+       //ToastService.ShowSuccess("Successfully completed the operation!");
+           _toastService.ShowSuccess("Success");
+       //NotificationTitle = "New Notification";
+           //NotificationMessage = message;
 
        // Call StateHasChanged to update the UI
            await InvokeAsync(() => StateHasChanged());
@@ -114,6 +128,7 @@
     public async Task IncrementCount()
     {
         await Task.Yield();
+        //ToastService.ShowSuccess("Successfully completed the operation!");
         count++;
         if (count>10)
         {

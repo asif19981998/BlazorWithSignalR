@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oungqljABzt67qQ4ufKEDG7WDc+8x3NuZm61Ae7Tieo=",
+  "Hash": "fgygZjDbqZt4BUzwUpliWXeC1XZ8wGxUkLYi/PoH9F0=",
   "Source": "BlazorAppWithSignalR",
   "BasePath": "_content/BlazorAppWithSignalR",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\Blazored.Toast.bundle.scp.css",
+      "SourceId": "Blazored.Toast",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\",
+      "BasePath": "_content/Blazored.Toast",
+      "RelativePath": "Blazored.Toast.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\4.1.0\\staticwebassets\\Blazored.Toast.bundle.scp.css"
+    },
     {
       "Identity": "E:\\New Work Folder 28_03_2023\\BlazorWithSignalR\\BlazorAppWithSignalR\\BlazorAppWithSignalR\\obj\\Debug\\net6.0\\scopedcss\\bundle\\BlazorAppWithSignalR.styles.css",
       "SourceId": "BlazorAppWithSignalR",
